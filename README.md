@@ -10,9 +10,12 @@ This repo contains scripts to complete the problem sets, it contains other usefu
 
 The R markdown script to generate this output is in `/scripts/chapter1.Rmd`
 
+Useful websites for chapter 1:
 
-
-
+Binomial Theorem: (
+[1](https://www.yourarticlelibrary.com/fish/genetics-fish/notes-on-binomial-expansion-genetics/88675),
+[2](https://www.cliffsnotes.com/study-guides/algebra/algebra-ii/additional-topics/binomial-coefficients-and-the-binomial-theorem)
+)
 
 
 
