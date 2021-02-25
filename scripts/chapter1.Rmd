@@ -13,21 +13,21 @@ library(ggplot2)
 
 # Worked Problems
 
-## Problem 1.
+__Problem 1.__
 
-a) 
+__a)__ 
 ```{r}
 # The number of phenotypic classes obtained (in general) is given by:
 num_classes<-function(n){(2*n)+1}
 n<-20 # The number of loci
 num_classes(n)
 ```
-b) The probability of finding an individual among the offspring that is heterozygous at all 20 loci is the product of the probabilities at being heterozygous at 1 locus. N.B. We assume that they are unlinked (independent), and the parent is a heterozygote that is reproducing via selfing. Thus for a single locus the frequency of heterozygotes is 2/4 (0.5). So the frequency of heterozygotes at 20 loci is:
+__b)__ The probability of finding an individual among the offspring that is heterozygous at all 20 loci is the product of the probabilities at being heterozygous at 1 locus. N.B. We assume that they are unlinked (independent), and the parent is a heterozygote that is reproducing via selfing. Thus for a single locus the frequency of heterozygotes is 2/4 (0.5). So the frequency of heterozygotes at 20 loci is:
 ```{r}
 0.5^n
 ```
 
-c) The probability of obtaining descendants with a phenotypic value of 10 can be obtained using the binomial theorem.
+__c)__ The probability of obtaining descendants with a phenotypic value of 10 can be obtained using the binomial theorem.
 ```{r}
 n<-20
 k<-10
@@ -56,7 +56,8 @@ ggplot()+
 
 
 
-## Problem 2.
+__Problem 2.__
+
 This is the data.
 ```{r}
 bris<-c(24,24,21,21,21,20,19,19,18,24,
@@ -80,7 +81,7 @@ CVg<-sqrt(Vg)/(mean(bris))
 cat("Ve = ",Ve, ", CVp = ",CVp, ", CVg = ",CVg,"\n")
 ```
 
-Self Assessment Questions:
+__Self Assessment Questions:__
 1. False
 2. True
 3. False
