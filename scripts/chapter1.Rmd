@@ -1,0 +1,91 @@
+---
+title: "Chapter 1"
+output:
+  html_document:
+    df_print: paged
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(ggplot2)
+```
+
+Problems
+1.
+a) 
+```{r}
+# The number of phenotypic classes obtained (in general) is given by:
+num_classes<-function(n){(2*n)+1}
+n<-20 # The number of loci
+num_classes(n)
+```
+b) The probability of finding an individual among the offspring that is heterozygous at all 20 loci is the product of the probabilities at being heterozygous at 1 locus. N.B. We assume that they are unlinked (independent), and the parent is a heterozygote that is reproducing via selfing. Thus for a single locus the frequency of heterozygotes is 2/4 (0.5). So the frequency of heterozygotes at 20 loci is:
+```{r}
+0.5^n
+```
+
+c) The probability of obtaining descendants with a phenotypic value of 10 can be obtained using the binomial theorem.
+```{r}
+n<-20
+k<-10
+p<-0.5
+q<-1-p
+# There are 2n alleles, we choose 10 of them and we want to kno how many have k = 10. This can be obtained with:
+choose((2*n),k)*(p^k)*(q^((2*n)-k))
+# R also has a function for this
+dbinom(x = k, prob = p,size=(2*n))
+```
+
+To get the full probability distribution we can compute the probabilities for all k = {0..40}. Again, we are mating two heterozygotes, so the allele frequencies are p = q = 0.5
+```{r}
+genotypic_values<-seq(0,40)
+probabilities<-dbinom(x=genotypic_values,prob=0.5,size=(2*n))
+```
+Plot this data
+```{r}
+ggplot()+
+  geom_bar(aes(x=genotypic_values,y=probabilities),stat="identity")+
+  geom_text(aes(x=genotypic_values,y=probabilities,label=as.character(round(probabilities,5))),hjust=-0.1,vjust=0.5,angle=90)+
+  scale_y_continuous(limits=c(0,0.15))+
+  xlab("Genotypic Value")+
+  ylab("Probability")
+```
+
+
+
+2.
+This is the data.
+```{r}
+bris<-c(24,24,21,21,21,20,19,19,18,24,
+  23,25,22,24,22,22,18,20,22,28,
+  23,27,23,20,23,21,26,27,27,28,
+  26,26,24,26,27,26,20,22,21,18,
+  18,21,17,21,18,20,23,22,34,22)
+```
+
+The phenotypic variance can be obtained simply from the phenotypic data. And we assume Vg = 4
+```{r}
+Vp<-var(bris)
+Vg<-4
+Ve<-Vp-Vg
+```
+
+Coefficients of variation for both P and G can be obtained with the mean  of the phenotypic data. Since we assume that the mean of the genotypic values is the same as the mean of the phenotypic values.
+```{r}
+CVp<-sqrt(Vp)/(mean(bris))
+CVg<-sqrt(Vg)/(mean(bris))
+cat("Ve = ",Ve, ", CVp = ",CVp, ", CVg = ",CVg,"\n")
+```
+
+Self Assessment Questions:
+1. False
+2. True
+3. False
+4. False
+5. True
+6. True
+7. False
+8. False
+9. True
+10. True
