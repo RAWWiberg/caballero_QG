@@ -11,8 +11,9 @@ editor_options:
 library(ggplot2)
 ```
 
-Problems
-1.
+# Worked Problems
+## 1.
+
 a) 
 ```{r}
 # The number of phenotypic classes obtained (in general) is given by:
@@ -54,7 +55,7 @@ ggplot()+
 
 
 
-2.
+## 2.
 This is the data.
 ```{r}
 bris<-c(24,24,21,21,21,20,19,19,18,24,
