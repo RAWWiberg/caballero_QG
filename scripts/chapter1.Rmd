@@ -12,7 +12,8 @@ library(ggplot2)
 ```
 
 # Worked Problems
-## 1.
+
+## Problem 1.
 
 a) 
 ```{r}
@@ -55,7 +56,7 @@ ggplot()+
 
 
 
-## 2.
+## Problem 2.
 This is the data.
 ```{r}
 bris<-c(24,24,21,21,21,20,19,19,18,24,
